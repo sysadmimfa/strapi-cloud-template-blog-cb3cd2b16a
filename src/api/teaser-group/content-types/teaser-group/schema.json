@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "teaser_groups",
+  "info": {
+    "singularName": "teaser-group",
+    "pluralName": "teaser-groups",
+    "displayName": "TeaserGroup",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "CTAText": {
+      "type": "string"
+    },
+    "CTALink": {
+      "type": "string"
+    },
+    "TeaserType": {
+      "type": "enumeration",
+      "enum": [
+        "Slider",
+        "Single",
+        "Cards",
+        "Text"
+      ],
+      "default": "Single"
+    },
+    "TeaserTitle": {
+      "type": "string"
+    },
+    "TeaserSubtitle": {
+      "type": "text"
+    },
+    "media_groups": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::media-group.media-group"
+    }
+  }
+}

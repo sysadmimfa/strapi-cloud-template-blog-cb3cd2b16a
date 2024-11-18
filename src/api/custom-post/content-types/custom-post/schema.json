@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "custom_posts",
+  "info": {
+    "singularName": "custom-post",
+    "pluralName": "custom-posts",
+    "displayName": "CustomPost",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "UID": {
+      "type": "uid"
+    },
+    "SectionTitle": {
+      "type": "string"
+    },
+    "SectionDescription": {
+      "type": "text"
+    },
+    "CTAText": {
+      "type": "string"
+    },
+    "CTALinkBlog": {
+      "type": "string"
+    },
+    "Post": {
+      "displayName": "Post",
+      "type": "component",
+      "repeatable": false,
+      "component": "post.post"
+    },
+    "CTALinkPressRelease": {
+      "type": "string"
+    },
+    "CTALinkNewsRoom": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_post_posts",
+  "info": {
+    "displayName": "Post",
+    "icon": "grid",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "blogs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog.blog"
+    },
+    "press_releases": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::press-release.press-release"
+    },
+    "news_rooms": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::news-room.news-room"
+    }
+  }
+}

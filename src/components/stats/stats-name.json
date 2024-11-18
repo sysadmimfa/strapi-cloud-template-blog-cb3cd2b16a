@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_stats_stats_names",
+  "info": {
+    "displayName": "StatsName",
+    "icon": "star",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "StatsName": {
+      "type": "string"
+    },
+    "StatsNumber": {
+      "type": "integer"
+    },
+    "ShowPlus": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

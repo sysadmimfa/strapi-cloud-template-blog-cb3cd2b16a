@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "banner_groups",
+  "info": {
+    "singularName": "banner-group",
+    "pluralName": "banner-groups",
+    "displayName": "BannerGroup",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "UID": {
+      "type": "uid"
+    },
+    "TeaserName": {
+      "type": "string"
+    },
+    "teaser_groups": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::teaser-group.teaser-group"
+    },
+    "SectionTitle": {
+      "type": "string"
+    },
+    "SectionDescription": {
+      "type": "text"
+    },
+    "SectionCTAText": {
+      "type": "string"
+    },
+    "SectionCTALink": {
+      "type": "string"
+    }
+  }
+}
