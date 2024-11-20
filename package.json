@@ -15,7 +15,7 @@
     "@algolia/client-search": "^5.13.0",
     "@strapi/plugin-cloud": "5.0.0",
     "@strapi/plugin-users-permissions": "5.0.0",
-    "@strapi/strapi": "^5.3.0",
+    "@strapi/strapi": "^5.4.0",
     "better-sqlite3": "9.4.3",
     "fs-extra": "^10.0.0",
     "mime-types": "^2.1.27",

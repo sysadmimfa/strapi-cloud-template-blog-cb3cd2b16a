@@ -369,6 +369,41 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAlankarAlankar extends Struct.CollectionTypeSchema {
+  collectionName: 'alankars';
+  info: {
+    description: '';
+    displayName: 'Alankar';
+    pluralName: 'alankars';
+    singularName: 'alankar';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    DesktopImage: Schema.Attribute.Media<'images' | 'files'>;
+    FinancialYear: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::alankar.alankar'
+    > &
+      Schema.Attribute.Private;
+    MobileImage: Schema.Attribute.Media<'images' | 'files'>;
+    PDFFile: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    PostDate: Schema.Attribute.Date;
+    publishedAt: Schema.Attribute.DateTime;
+    Subtitle: Schema.Attribute.Text;
+    Title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   collectionName: 'authors';
   info: {
@@ -563,6 +598,41 @@ export interface ApiCustomPostCustomPost extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiEventEvent extends Struct.CollectionTypeSchema {
+  collectionName: 'events';
+  info: {
+    description: '';
+    displayName: 'Event';
+    pluralName: 'events';
+    singularName: 'event';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    DesktopImage: Schema.Attribute.Media<'images' | 'files'>;
+    FinancialYear: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::event.event'> &
+      Schema.Attribute.Private;
+    MobileImage: Schema.Attribute.Media<'images' | 'files'>;
+    PostDate: Schema.Attribute.Date;
+    publishedAt: Schema.Attribute.DateTime;
+    Subtitle: Schema.Attribute.Text;
+    Title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    VenueAddress: Schema.Attribute.Text;
+    VenueDirection: Schema.Attribute.String;
+    VenueTitle: Schema.Attribute.String;
+  };
+}
+
 export interface ApiFooterConfigFooterConfig extends Struct.SingleTypeSchema {
   collectionName: 'footer_configs';
   info: {
@@ -599,6 +669,60 @@ export interface ApiFooterConfigFooterConfig extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiGalleryGallery extends Struct.CollectionTypeSchema {
+  collectionName: 'galleries';
+  info: {
+    description: '';
+    displayName: 'Gallery';
+    pluralName: 'galleries';
+    singularName: 'gallery';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Category: Schema.Attribute.Enumeration<
+      [
+        'Leaders',
+        'Corporate Office',
+        'Ferro Chrome Plant',
+        'Power Plant (30 MW)',
+        'Power Plant (2X60 MW)',
+        'Sukinda Mines (Chromite)',
+        'Mahagiri Mines (Chromite)',
+        'Nuasahi Chromite Mines',
+        'Events',
+        'Video',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Designation: Schema.Attribute.String;
+    Image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::gallery.gallery'
+    > &
+      Schema.Attribute.Private;
+    MediaType: Schema.Attribute.Enumeration<['Image', 'Video']> &
+      Schema.Attribute.DefaultTo<'Image'>;
+    mux_videos: Schema.Attribute.Relation<
+      'oneToMany',
+      'plugin::mux-video-uploader.mux-asset'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -625,6 +749,44 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     siteDescription: Schema.Attribute.Text & Schema.Attribute.Required;
     siteName: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiImfaInMediaImfaInMedia extends Struct.CollectionTypeSchema {
+  collectionName: 'imfa_in_medias';
+  info: {
+    displayName: 'IMFAInMedia';
+    pluralName: 'imfa-in-medias';
+    singularName: 'imfa-in-media';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    DesktopImage: Schema.Attribute.Media<'images' | 'files'>;
+    ExternalCTALink: Schema.Attribute.String;
+    ExternalCTAText: Schema.Attribute.String;
+    FinancialYear: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::imfa-in-media.imfa-in-media'
+    > &
+      Schema.Attribute.Private;
+    MobileImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    PDFFile: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    PostDate: Schema.Attribute.Date;
+    publishedAt: Schema.Attribute.DateTime;
+    Subtitle: Schema.Attribute.Text;
+    Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -848,7 +1010,7 @@ export interface ApiPressReleasePressRelease
     };
   };
   attributes: {
-    Content: Schema.Attribute.RichText &
+    Category: Schema.Attribute.Enumeration<['Press Release']> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -863,12 +1025,24 @@ export interface ApiPressReleasePressRelease
           localized: true;
         };
       }>;
+    FinancialYear: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::press-release.press-release'
     >;
     MobileImage: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    PDFFile: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1645,12 +1819,16 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::alankar.alankar': ApiAlankarAlankar;
       'api::author.author': ApiAuthorAuthor;
       'api::banner-group.banner-group': ApiBannerGroupBannerGroup;
       'api::blog.blog': ApiBlogBlog;
       'api::custom-post.custom-post': ApiCustomPostCustomPost;
+      'api::event.event': ApiEventEvent;
       'api::footer-config.footer-config': ApiFooterConfigFooterConfig;
+      'api::gallery.gallery': ApiGalleryGallery;
       'api::global.global': ApiGlobalGlobal;
+      'api::imfa-in-media.imfa-in-media': ApiImfaInMediaImfaInMedia;
       'api::main-menu.main-menu': ApiMainMenuMainMenu;
       'api::media-group.media-group': ApiMediaGroupMediaGroup;
       'api::news-room.news-room': ApiNewsRoomNewsRoom;

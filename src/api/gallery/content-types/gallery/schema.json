@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "galleries",
+  "info": {
+    "singularName": "gallery",
+    "pluralName": "galleries",
+    "displayName": "Gallery",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Designation": {
+      "type": "string"
+    },
+    "MediaType": {
+      "type": "enumeration",
+      "enum": [
+        "Image",
+        "Video"
+      ],
+      "default": "Image"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "Leaders",
+        "Corporate Office",
+        "Ferro Chrome Plant",
+        "Power Plant (30 MW)",
+        "Power Plant (2X60 MW)",
+        "Sukinda Mines (Chromite)",
+        "Mahagiri Mines (Chromite)",
+        "Nuasahi Chromite Mines",
+        "Events",
+        "Video"
+      ]
+    },
+    "mux_videos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::mux-video-uploader.mux-asset"
+    }
+  }
+}
