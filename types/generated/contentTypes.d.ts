@@ -490,7 +490,13 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    Content: Schema.Attribute.RichText &
+    Category: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Content: Schema.Attribute.Blocks &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -544,6 +550,13 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    slug: Schema.Attribute.UID<'Title'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     Subtitle: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -551,6 +564,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
         };
       }>;
     Title: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -699,10 +713,7 @@ export interface ApiGalleryGallery extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Designation: Schema.Attribute.String;
-    Image: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -711,8 +722,8 @@ export interface ApiGalleryGallery extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     MediaType: Schema.Attribute.Enumeration<['Image', 'Video']> &
       Schema.Attribute.DefaultTo<'Image'>;
-    mux_videos: Schema.Attribute.Relation<
-      'oneToMany',
+    mux_video: Schema.Attribute.Relation<
+      'oneToOne',
       'plugin::mux-video-uploader.mux-asset'
     >;
     publishedAt: Schema.Attribute.DateTime;
@@ -1010,7 +1021,7 @@ export interface ApiPressReleasePressRelease
     };
   };
   attributes: {
-    Category: Schema.Attribute.Enumeration<['Press Release']> &
+    Category: Schema.Attribute.Enumeration<['Press Release', 'Media']> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

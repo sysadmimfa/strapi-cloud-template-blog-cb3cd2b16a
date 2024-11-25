@@ -108,7 +108,8 @@
       },
       "type": "enumeration",
       "enum": [
-        "Press Release"
+        "Press Release",
+        "Media"
       ]
     },
     "FinancialYear": {

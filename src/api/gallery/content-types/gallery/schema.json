@@ -28,7 +28,7 @@
     },
     "Image": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "allowedTypes": [
         "images",
@@ -52,9 +52,9 @@
         "Video"
       ]
     },
-    "mux_videos": {
+    "mux_video": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "oneToOne",
       "target": "plugin::mux-video-uploader.mux-asset"
     }
   }
