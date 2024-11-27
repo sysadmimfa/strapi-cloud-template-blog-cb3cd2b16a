@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "galleries",
+  "info": {
+    "singularName": "gallery",
+    "pluralName": "galleries",
+    "displayName": "Gallery",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Designation": {
+      "type": "string"
+    },
+    "MediaType": {
+      "type": "enumeration",
+      "enum": [
+        "Image",
+        "Video"
+      ],
+      "default": "Image"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "mux_video": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::mux-video-uploader.mux-asset"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
+    }
+  }
+}

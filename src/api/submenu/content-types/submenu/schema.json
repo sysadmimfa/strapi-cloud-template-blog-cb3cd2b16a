@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "submenus",
+  "info": {
+    "singularName": "submenu",
+    "pluralName": "submenus",
+    "displayName": "Submenu"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Link": {
+      "type": "string"
+    },
+    "SEOTitle": {
+      "type": "string"
+    },
+    "SEODescription": {
+      "type": "text"
+    },
+    "SEOKeywords": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "alankars",
+  "info": {
+    "singularName": "alankar",
+    "pluralName": "alankars",
+    "displayName": "Alankar",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "PostDate": {
+      "type": "date"
+    },
+    "PDFFile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "DesktopImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "MobileImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "Subtitle": {
+      "type": "text"
+    },
+    "FinancialYear": {
+      "type": "string"
+    }
+  }
+}

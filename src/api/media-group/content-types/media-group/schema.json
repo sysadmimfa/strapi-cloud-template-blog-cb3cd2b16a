@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "media_groups",
+  "info": {
+    "singularName": "media-group",
+    "pluralName": "media-groups",
+    "displayName": "MediaGroup",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "MediaType": {
+      "type": "enumeration",
+      "enum": [
+        "Image",
+        "Video"
+      ],
+      "default": "Image"
+    },
+    "DesktopImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "MobileImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "video": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::mux-video-uploader.mux-asset"
+    },
+    "Title": {
+      "type": "string"
+    }
+  }
+}

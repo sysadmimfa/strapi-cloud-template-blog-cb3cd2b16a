@@ -1,53 +1,22 @@
-import type { Struct, Schema } from '@strapi/strapi';
+import type { Schema, Struct } from '@strapi/strapi';
 
-export interface SharedSlider extends Struct.ComponentSchema {
-  collectionName: 'components_shared_sliders';
+export interface PostPost extends Struct.ComponentSchema {
+  collectionName: 'components_post_posts';
   info: {
-    displayName: 'Slider';
-    icon: 'address-book';
     description: '';
+    displayName: 'Post';
+    icon: 'grid';
   };
   attributes: {
-    files: Schema.Attribute.Media<'images', true>;
-  };
-}
-
-export interface SharedSeo extends Struct.ComponentSchema {
-  collectionName: 'components_shared_seos';
-  info: {
-    name: 'Seo';
-    icon: 'allergies';
-    displayName: 'Seo';
-    description: '';
-  };
-  attributes: {
-    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
-  };
-}
-
-export interface SharedRichText extends Struct.ComponentSchema {
-  collectionName: 'components_shared_rich_texts';
-  info: {
-    displayName: 'Rich text';
-    icon: 'align-justify';
-    description: '';
-  };
-  attributes: {
-    body: Schema.Attribute.RichText;
-  };
-}
-
-export interface SharedQuote extends Struct.ComponentSchema {
-  collectionName: 'components_shared_quotes';
-  info: {
-    displayName: 'Quote';
-    icon: 'indent';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    body: Schema.Attribute.Text;
+    blogs: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
+    news_rooms: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::news-room.news-room'
+    >;
+    press_releases: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::press-release.press-release'
+    >;
   };
 }
 
@@ -62,14 +31,94 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedQuote extends Struct.ComponentSchema {
+  collectionName: 'components_shared_quotes';
+  info: {
+    displayName: 'Quote';
+    icon: 'indent';
+  };
+  attributes: {
+    body: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SharedRichText extends Struct.ComponentSchema {
+  collectionName: 'components_shared_rich_texts';
+  info: {
+    description: '';
+    displayName: 'Rich text';
+    icon: 'align-justify';
+  };
+  attributes: {
+    body: Schema.Attribute.RichText;
+  };
+}
+
+export interface SharedSeo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_seos';
+  info: {
+    description: '';
+    displayName: 'Seo';
+    icon: 'allergies';
+    name: 'Seo';
+  };
+  attributes: {
+    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
+    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    shareImage: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface SharedSlider extends Struct.ComponentSchema {
+  collectionName: 'components_shared_sliders';
+  info: {
+    description: '';
+    displayName: 'Slider';
+    icon: 'address-book';
+  };
+  attributes: {
+    files: Schema.Attribute.Media<'images', true>;
+  };
+}
+
+export interface SocialmediaSocialMedia extends Struct.ComponentSchema {
+  collectionName: 'components_socialmedia_social_medias';
+  info: {
+    displayName: 'SocialMedia';
+    icon: 'twitter';
+  };
+  attributes: {
+    SocialMediaIcon: Schema.Attribute.String;
+    SocialMediaLink: Schema.Attribute.String;
+  };
+}
+
+export interface StatsStatsName extends Struct.ComponentSchema {
+  collectionName: 'components_stats_stats_names';
+  info: {
+    description: '';
+    displayName: 'StatsName';
+    icon: 'star';
+  };
+  attributes: {
+    ShowPlus: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    StatsName: Schema.Attribute.String;
+    StatsNumber: Schema.Attribute.Integer;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'shared.slider': SharedSlider;
-      'shared.seo': SharedSeo;
-      'shared.rich-text': SharedRichText;
-      'shared.quote': SharedQuote;
+      'post.post': PostPost;
       'shared.media': SharedMedia;
+      'shared.quote': SharedQuote;
+      'shared.rich-text': SharedRichText;
+      'shared.seo': SharedSeo;
+      'shared.slider': SharedSlider;
+      'socialmedia.social-media': SocialmediaSocialMedia;
+      'stats.stats-name': StatsStatsName;
     }
   }
 }

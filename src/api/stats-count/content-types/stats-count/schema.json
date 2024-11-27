@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stats_counts",
+  "info": {
+    "singularName": "stats-count",
+    "pluralName": "stats-counts",
+    "displayName": "StatsCount",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "StatsCounts": {
+      "displayName": "StatsName",
+      "type": "component",
+      "repeatable": true,
+      "component": "stats.stats-name"
+    },
+    "UID": {
+      "type": "uid"
+    }
+  }
+}

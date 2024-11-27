@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "footer_configs",
+  "info": {
+    "singularName": "footer-config",
+    "pluralName": "footer-configs",
+    "displayName": "FooterConfig"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "AddressTitle": {
+      "type": "string"
+    },
+    "Address": {
+      "type": "text"
+    },
+    "Copyrights": {
+      "type": "string"
+    },
+    "DisclimerText": {
+      "type": "string"
+    },
+    "DisclimerLink": {
+      "type": "string"
+    },
+    "SocialMediaLinks": {
+      "displayName": "SocialMedia",
+      "type": "component",
+      "repeatable": true,
+      "component": "socialmedia.social-media"
+    }
+  }
+}
