@@ -576,6 +576,35 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
+  collectionName: 'categories';
+  info: {
+    displayName: 'Category';
+    pluralName: 'categories';
+    singularName: 'category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category.category'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    UID: Schema.Attribute.UID<'Name'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCustomPostCustomPost extends Struct.CollectionTypeSchema {
   collectionName: 'custom_posts';
   info: {
@@ -695,19 +724,9 @@ export interface ApiGalleryGallery extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Category: Schema.Attribute.Enumeration<
-      [
-        'Leaders',
-        'Corporate Office',
-        'Ferro Chrome Plant',
-        'Power Plant (30 MW)',
-        'Power Plant (2X60 MW)',
-        'Sukinda Mines (Chromite)',
-        'Mahagiri Mines (Chromite)',
-        'Nuasahi Chromite Mines',
-        'Events',
-        'Video',
-      ]
+    categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category.category'
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1834,6 +1853,7 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::banner-group.banner-group': ApiBannerGroupBannerGroup;
       'api::blog.blog': ApiBlogBlog;
+      'api::category.category': ApiCategoryCategory;
       'api::custom-post.custom-post': ApiCustomPostCustomPost;
       'api::event.event': ApiEventEvent;
       'api::footer-config.footer-config': ApiFooterConfigFooterConfig;
