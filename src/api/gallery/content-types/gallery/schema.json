@@ -37,25 +37,15 @@
         "audios"
       ]
     },
-    "Category": {
-      "type": "enumeration",
-      "enum": [
-        "Leaders",
-        "Corporate Office",
-        "Ferro Chrome Plant",
-        "Power Plant (30 MW)",
-        "Power Plant (2X60 MW)",
-        "Sukinda Mines (Chromite)",
-        "Mahagiri Mines (Chromite)",
-        "Nuasahi Chromite Mines",
-        "Events",
-        "Video"
-      ]
-    },
     "mux_video": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::mux-video-uploader.mux-asset"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
     }
   }
 }
