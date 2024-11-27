@@ -132,14 +132,6 @@
       },
       "type": "uid",
       "targetField": "Title"
-    },
-    "Content": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "blocks"
     }
   }
 }
