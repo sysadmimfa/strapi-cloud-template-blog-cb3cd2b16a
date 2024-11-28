@@ -126,6 +126,14 @@
         }
       },
       "type": "string"
+    },
+    "FinancialYear": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }
