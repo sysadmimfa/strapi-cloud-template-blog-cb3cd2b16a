@@ -673,6 +673,12 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    EventContent: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     FinancialYear: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
