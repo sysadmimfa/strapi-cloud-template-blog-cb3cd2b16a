@@ -369,6 +369,40 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAddressGroupAddressGroup
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'address_groups';
+  info: {
+    displayName: 'AddressGroup';
+    pluralName: 'address-groups';
+    singularName: 'address-group';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    AddressDetails: Schema.Attribute.Component<
+      'address-details.address-details',
+      true
+    >;
+    AddressTitle: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::address-group.address-group'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    UID: Schema.Attribute.UID;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAlankarAlankar extends Struct.CollectionTypeSchema {
   collectionName: 'alankars';
   info: {
@@ -1933,6 +1967,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::address-group.address-group': ApiAddressGroupAddressGroup;
       'api::alankar.alankar': ApiAlankarAlankar;
       'api::author.author': ApiAuthorAuthor;
       'api::banner-group.banner-group': ApiBannerGroupBannerGroup;

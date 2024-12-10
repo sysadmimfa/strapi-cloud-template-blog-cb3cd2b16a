@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "address_groups",
+  "info": {
+    "singularName": "address-group",
+    "pluralName": "address-groups",
+    "displayName": "AddressGroup"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "UID": {
+      "type": "uid"
+    },
+    "AddressTitle": {
+      "type": "string"
+    },
+    "AddressDetails": {
+      "displayName": "AddressDetails",
+      "type": "component",
+      "repeatable": true,
+      "component": "address-details.address-details"
+    }
+  }
+}

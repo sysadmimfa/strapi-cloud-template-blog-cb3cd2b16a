@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_address_details_address_details",
+  "info": {
+    "displayName": "AddressDetails"
+  },
+  "options": {},
+  "attributes": {
+    "AddressType": {
+      "type": "enumeration",
+      "enum": [
+        "Location",
+        "Landline",
+        "Mobile",
+        "Fax",
+        "Email"
+      ]
+    },
+    "Details": {
+      "type": "blocks"
+    }
+  }
+}

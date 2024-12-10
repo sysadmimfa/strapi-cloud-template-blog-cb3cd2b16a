@@ -1,5 +1,18 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AddressDetailsAddressDetails extends Struct.ComponentSchema {
+  collectionName: 'components_address_details_address_details';
+  info: {
+    displayName: 'AddressDetails';
+  };
+  attributes: {
+    AddressType: Schema.Attribute.Enumeration<
+      ['Location', 'Landline', 'Mobile', 'Fax', 'Email']
+    >;
+    Details: Schema.Attribute.Blocks;
+  };
+}
+
 export interface PostPost extends Struct.ComponentSchema {
   collectionName: 'components_post_posts';
   info: {
@@ -111,6 +124,7 @@ export interface StatsStatsName extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'address-details.address-details': AddressDetailsAddressDetails;
       'post.post': PostPost;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
