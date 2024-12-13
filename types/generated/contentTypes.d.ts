@@ -494,6 +494,7 @@ export interface ApiBannerGroupBannerGroup extends Struct.CollectionTypeSchema {
     SectionCTALink: Schema.Attribute.String;
     SectionCTAText: Schema.Attribute.String;
     SectionDescription: Schema.Attribute.Text;
+    SectionDescriptionBlock: Schema.Attribute.Blocks;
     SectionTitle: Schema.Attribute.String;
     teaser_groups: Schema.Attribute.Relation<
       'oneToMany',
@@ -1326,6 +1327,7 @@ export interface ApiTeaserGroupTeaserGroup extends Struct.CollectionTypeSchema {
     CTALink: Schema.Attribute.String;
     CTAText: Schema.Attribute.String;
     Description: Schema.Attribute.Text;
+    DescriptionBlock: Schema.Attribute.Blocks;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1337,6 +1339,7 @@ export interface ApiTeaserGroupTeaserGroup extends Struct.CollectionTypeSchema {
       'api::media-group.media-group'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    Tag: Schema.Attribute.String;
     TeaserSubtitle: Schema.Attribute.Text;
     TeaserTitle: Schema.Attribute.String;
     TeaserType: Schema.Attribute.Enumeration<

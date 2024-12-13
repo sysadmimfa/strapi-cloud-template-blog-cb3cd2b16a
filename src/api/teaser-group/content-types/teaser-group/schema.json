@@ -44,6 +44,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::media-group.media-group"
+    },
+    "DescriptionBlock": {
+      "type": "blocks"
+    },
+    "Tag": {
+      "type": "string"
     }
   }
 }
