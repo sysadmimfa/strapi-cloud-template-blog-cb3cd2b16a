@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "investors",
+  "info": {
+    "singularName": "investor",
+    "pluralName": "investors",
+    "displayName": "Investor",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "UID": {
+      "type": "uid",
+      "targetField": "Title"
+    },
+    "Categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::investor-category.investor-category"
+    },
+    "PostDate": {
+      "type": "date"
+    },
+    "SubType": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::investor-sub-type.investor-sub-type"
+    },
+    "Variants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::investor-variant.investor-variant"
+    },
+    "MediaData": {
+      "displayName": "MediaFiles",
+      "type": "component",
+      "repeatable": true,
+      "component": "media-files.media-files"
+    },
+    "FinancialYear": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::financial-year.financial-year"
+    }
+  }
+}
