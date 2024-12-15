@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "investor_categories",
+  "info": {
+    "singularName": "investor-category",
+    "pluralName": "investor-categories",
+    "displayName": "InvestorCategory",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "UID": {
+      "type": "uid",
+      "targetField": "Name"
+    },
+    "Name": {
+      "type": "string"
+    }
+  }
+}

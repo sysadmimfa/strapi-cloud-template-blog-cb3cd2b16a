@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "investor_variants",
+  "info": {
+    "singularName": "investor-variant",
+    "pluralName": "investor-variants",
+    "displayName": "InvestorVariant",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "UID": {
+      "type": "uid",
+      "targetField": "Name"
+    },
+    "Name": {
+      "type": "string"
+    }
+  }
+}

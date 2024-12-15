@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "investor_pages",
+  "info": {
+    "singularName": "investor-page",
+    "pluralName": "investor-pages",
+    "displayName": "InvestorPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "PageName": {
+      "type": "string"
+    },
+    "Categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::investor-category.investor-category"
+    }
+  }
+}

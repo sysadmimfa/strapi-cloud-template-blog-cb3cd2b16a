@@ -794,6 +794,35 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFinancialYearFinancialYear
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'financial_years';
+  info: {
+    displayName: 'FinancialYear';
+    pluralName: 'financial-years';
+    singularName: 'financial-year';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::financial-year.financial-year'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    YearRange: Schema.Attribute.String;
+  };
+}
+
 export interface ApiFooterConfigFooterConfig extends Struct.SingleTypeSchema {
   collectionName: 'footer_configs';
   info: {
@@ -938,6 +967,180 @@ export interface ApiImfaInMediaImfaInMedia extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiInvestorCategoryInvestorCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'investor_categories';
+  info: {
+    description: '';
+    displayName: 'InvestorCategory';
+    pluralName: 'investor-categories';
+    singularName: 'investor-category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::investor-category.investor-category'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    UID: Schema.Attribute.UID<'Name'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiInvestorPageInvestorPage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'investor_pages';
+  info: {
+    displayName: 'InvestorPage';
+    pluralName: 'investor-pages';
+    singularName: 'investor-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::investor-category.investor-category'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::investor-page.investor-page'
+    > &
+      Schema.Attribute.Private;
+    PageName: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiInvestorSubTypeInvestorSubType
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'investor_sub_types';
+  info: {
+    description: '';
+    displayName: 'InvestorSubType';
+    pluralName: 'investor-sub-types';
+    singularName: 'investor-sub-type';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::investor-sub-type.investor-sub-type'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    UID: Schema.Attribute.UID<'Name'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiInvestorVariantInvestorVariant
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'investor_variants';
+  info: {
+    description: '';
+    displayName: 'InvestorVariant';
+    pluralName: 'investor-variants';
+    singularName: 'investor-variant';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::investor-variant.investor-variant'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    UID: Schema.Attribute.UID<'Name'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiInvestorInvestor extends Struct.CollectionTypeSchema {
+  collectionName: 'investors';
+  info: {
+    description: '';
+    displayName: 'Investor';
+    pluralName: 'investors';
+    singularName: 'investor';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::investor-category.investor-category'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    FinancialYear: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::financial-year.financial-year'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::investor.investor'
+    > &
+      Schema.Attribute.Private;
+    MediaData: Schema.Attribute.Component<'media-files.media-files', true>;
+    PostDate: Schema.Attribute.Date;
+    publishedAt: Schema.Attribute.DateTime;
+    SubType: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::investor-sub-type.investor-sub-type'
+    >;
+    Title: Schema.Attribute.String;
+    UID: Schema.Attribute.UID<'Title'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Variants: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::investor-variant.investor-variant'
+    >;
   };
 }
 
@@ -1975,10 +2178,16 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::custom-post.custom-post': ApiCustomPostCustomPost;
       'api::event.event': ApiEventEvent;
+      'api::financial-year.financial-year': ApiFinancialYearFinancialYear;
       'api::footer-config.footer-config': ApiFooterConfigFooterConfig;
       'api::gallery.gallery': ApiGalleryGallery;
       'api::global.global': ApiGlobalGlobal;
       'api::imfa-in-media.imfa-in-media': ApiImfaInMediaImfaInMedia;
+      'api::investor-category.investor-category': ApiInvestorCategoryInvestorCategory;
+      'api::investor-page.investor-page': ApiInvestorPageInvestorPage;
+      'api::investor-sub-type.investor-sub-type': ApiInvestorSubTypeInvestorSubType;
+      'api::investor-variant.investor-variant': ApiInvestorVariantInvestorVariant;
+      'api::investor.investor': ApiInvestorInvestor;
       'api::main-menu.main-menu': ApiMainMenuMainMenu;
       'api::media-group.media-group': ApiMediaGroupMediaGroup;
       'api::news-room.news-room': ApiNewsRoomNewsRoom;

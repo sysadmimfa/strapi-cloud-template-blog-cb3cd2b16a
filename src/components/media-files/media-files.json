@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_media_files_media_files",
+  "info": {
+    "displayName": "MediaFiles",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "MediaType": {
+      "type": "enumeration",
+      "enum": [
+        "Video",
+        "Audio",
+        "PDF",
+        "Link"
+      ],
+      "default": "PDF"
+    },
+    "PDFFile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files",
+        "videos",
+        "images",
+        "audios"
+      ]
+    },
+    "Audio": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files",
+        "audios",
+        "images",
+        "videos"
+      ]
+    },
+    "Link": {
+      "type": "string"
+    },
+    "mux_video": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::mux-video-uploader.mux-asset"
+    }
+  }
+}

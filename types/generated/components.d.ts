@@ -13,6 +13,25 @@ export interface AddressDetailsAddressDetails extends Struct.ComponentSchema {
   };
 }
 
+export interface MediaFilesMediaFiles extends Struct.ComponentSchema {
+  collectionName: 'components_media_files_media_files';
+  info: {
+    description: '';
+    displayName: 'MediaFiles';
+  };
+  attributes: {
+    Audio: Schema.Attribute.Media<'files' | 'audios' | 'images' | 'videos'>;
+    Link: Schema.Attribute.String;
+    MediaType: Schema.Attribute.Enumeration<['Video', 'Audio', 'PDF', 'Link']> &
+      Schema.Attribute.DefaultTo<'PDF'>;
+    mux_video: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::mux-video-uploader.mux-asset'
+    >;
+    PDFFile: Schema.Attribute.Media<'files' | 'videos' | 'images' | 'audios'>;
+  };
+}
+
 export interface PostPost extends Struct.ComponentSchema {
   collectionName: 'components_post_posts';
   info: {
@@ -125,6 +144,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'address-details.address-details': AddressDetailsAddressDetails;
+      'media-files.media-files': MediaFilesMediaFiles;
       'post.post': PostPost;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;

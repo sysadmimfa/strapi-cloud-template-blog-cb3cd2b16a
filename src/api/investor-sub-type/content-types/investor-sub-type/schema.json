@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "investor_sub_types",
+  "info": {
+    "singularName": "investor-sub-type",
+    "pluralName": "investor-sub-types",
+    "displayName": "InvestorSubType",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "UID": {
+      "type": "uid",
+      "targetField": "Name"
+    },
+    "Name": {
+      "type": "string"
+    }
+  }
+}
