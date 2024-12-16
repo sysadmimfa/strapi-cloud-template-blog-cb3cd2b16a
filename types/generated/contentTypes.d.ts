@@ -646,6 +646,38 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiContactFormContactForm extends Struct.CollectionTypeSchema {
+  collectionName: 'contact_forms';
+  info: {
+    description: '';
+    displayName: 'ContactForm';
+    pluralName: 'contact-forms';
+    singularName: 'contact-form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Email: Schema.Attribute.Email;
+    FullName: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact-form.contact-form'
+    > &
+      Schema.Attribute.Private;
+    PhoneNumber: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    WhyDoYouWantToConnectFor: Schema.Attribute.String;
+  };
+}
+
 export interface ApiCustomPostCustomPost extends Struct.CollectionTypeSchema {
   collectionName: 'custom_posts';
   info: {
@@ -2179,6 +2211,7 @@ declare module '@strapi/strapi' {
       'api::banner-group.banner-group': ApiBannerGroupBannerGroup;
       'api::blog.blog': ApiBlogBlog;
       'api::category.category': ApiCategoryCategory;
+      'api::contact-form.contact-form': ApiContactFormContactForm;
       'api::custom-post.custom-post': ApiCustomPostCustomPost;
       'api::event.event': ApiEventEvent;
       'api::financial-year.financial-year': ApiFinancialYearFinancialYear;
