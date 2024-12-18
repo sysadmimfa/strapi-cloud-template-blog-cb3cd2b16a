@@ -45,6 +45,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::mux-video-uploader.mux-asset"
+    },
+    "MediaTitle": {
+      "type": "string"
     }
   }
 }
