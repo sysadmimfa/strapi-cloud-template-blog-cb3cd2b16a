@@ -1563,6 +1563,9 @@ export interface ApiTeaserGroupTeaserGroup extends Struct.CollectionTypeSchema {
     CTAText: Schema.Attribute.String;
     Description: Schema.Attribute.Text;
     DescriptionBlock: Schema.Attribute.Blocks;
+    FileUpload: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
