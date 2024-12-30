@@ -617,6 +617,40 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCareerFormCareerForm extends Struct.CollectionTypeSchema {
+  collectionName: 'career_forms';
+  info: {
+    description: '';
+    displayName: 'CareerForm';
+    pluralName: 'career-forms';
+    singularName: 'career-form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ContactNumber: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Email: Schema.Attribute.Email;
+    FirstName: Schema.Attribute.String;
+    LastName: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::career-form.career-form'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Resume: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    TermsAccepted: Schema.Attribute.Boolean;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
@@ -2213,6 +2247,7 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::banner-group.banner-group': ApiBannerGroupBannerGroup;
       'api::blog.blog': ApiBlogBlog;
+      'api::career-form.career-form': ApiCareerFormCareerForm;
       'api::category.category': ApiCategoryCategory;
       'api::contact-form.contact-form': ApiContactFormContactForm;
       'api::custom-post.custom-post': ApiCustomPostCustomPost;
