@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "data_accordion_categories",
+  "info": {
+    "singularName": "data-accordion-category",
+    "pluralName": "data-accordion-categories",
+    "displayName": "FAQorDataAccordionCategory",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Category": {
+      "type": "string"
+    },
+    "UID": {
+      "type": "uid",
+      "targetField": "Category"
+    }
+  }
+}
