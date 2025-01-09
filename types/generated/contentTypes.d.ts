@@ -748,6 +748,37 @@ export interface ApiCustomPostCustomPost extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiDataAccordionCategoryDataAccordionCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'data_accordion_categories';
+  info: {
+    description: '';
+    displayName: 'FAQorDataAccordionCategory';
+    pluralName: 'data-accordion-categories';
+    singularName: 'data-accordion-category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Category: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::data-accordion-category.data-accordion-category'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    UID: Schema.Attribute.UID<'Category'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   collectionName: 'events';
   info: {
@@ -858,6 +889,45 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+  };
+}
+
+export interface ApiFaQorDataAccordionFaQorDataAccordion
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'fa_qor_data_accordions';
+  info: {
+    description: '';
+    displayName: 'FAQorDataAccordion';
+    pluralName: 'fa-qor-data-accordions';
+    singularName: 'fa-qor-data-accordion';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    AccordionIcon: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    Category: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::data-accordion-category.data-accordion-category'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.Blocks;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fa-qor-data-accordion.fa-qor-data-accordion'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    SubDescription: Schema.Attribute.Component<'post.feature-card', true>;
+    Title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -2251,7 +2321,9 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::contact-form.contact-form': ApiContactFormContactForm;
       'api::custom-post.custom-post': ApiCustomPostCustomPost;
+      'api::data-accordion-category.data-accordion-category': ApiDataAccordionCategoryDataAccordionCategory;
       'api::event.event': ApiEventEvent;
+      'api::fa-qor-data-accordion.fa-qor-data-accordion': ApiFaQorDataAccordionFaQorDataAccordion;
       'api::financial-year.financial-year': ApiFinancialYearFinancialYear;
       'api::footer-config.footer-config': ApiFooterConfigFooterConfig;
       'api::gallery.gallery': ApiGalleryGallery;

@@ -33,6 +33,18 @@ export interface MediaFilesMediaFiles extends Struct.ComponentSchema {
   };
 }
 
+export interface PostFeatureCard extends Struct.ComponentSchema {
+  collectionName: 'components_post_feature_cards';
+  info: {
+    description: '';
+    displayName: 'FeatureCard';
+  };
+  attributes: {
+    CardDetails: Schema.Attribute.Blocks;
+    SubTitle: Schema.Attribute.String;
+  };
+}
+
 export interface PostPost extends Struct.ComponentSchema {
   collectionName: 'components_post_posts';
   info: {
@@ -146,6 +158,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'address-details.address-details': AddressDetailsAddressDetails;
       'media-files.media-files': MediaFilesMediaFiles;
+      'post.feature-card': PostFeatureCard;
       'post.post': PostPost;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
