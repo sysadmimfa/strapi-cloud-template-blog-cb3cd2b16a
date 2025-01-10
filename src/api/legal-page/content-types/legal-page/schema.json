@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "legal_pages",
+  "info": {
+    "singularName": "legal-page",
+    "pluralName": "legal-pages",
+    "displayName": "LegalPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "PageName": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "UID": {
+      "type": "uid",
+      "targetField": "PageName"
+    },
+    "Subheading": {
+      "type": "string"
+    },
+    "BlockContent": {
+      "type": "blocks"
+    }
+  }
+}

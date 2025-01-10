@@ -1281,6 +1281,38 @@ export interface ApiInvestorInvestor extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiLegalPageLegalPage extends Struct.CollectionTypeSchema {
+  collectionName: 'legal_pages';
+  info: {
+    displayName: 'LegalPage';
+    pluralName: 'legal-pages';
+    singularName: 'legal-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BlockContent: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::legal-page.legal-page'
+    > &
+      Schema.Attribute.Private;
+    PageName: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Subheading: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
+    UID: Schema.Attribute.UID<'PageName'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiMainMenuMainMenu extends Struct.CollectionTypeSchema {
   collectionName: 'main_menus';
   info: {
@@ -2334,6 +2366,7 @@ declare module '@strapi/strapi' {
       'api::investor-sub-type.investor-sub-type': ApiInvestorSubTypeInvestorSubType;
       'api::investor-variant.investor-variant': ApiInvestorVariantInvestorVariant;
       'api::investor.investor': ApiInvestorInvestor;
+      'api::legal-page.legal-page': ApiLegalPageLegalPage;
       'api::main-menu.main-menu': ApiMainMenuMainMenu;
       'api::media-group.media-group': ApiMediaGroupMediaGroup;
       'api::news-room.news-room': ApiNewsRoomNewsRoom;
