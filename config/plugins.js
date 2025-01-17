@@ -22,7 +22,9 @@ module.exports = ({env}) => ({
         { name: 'api::imfa-in-media.imfa-in-media' },
         { name: 'api::investor.investor' },
         { name: 'api::news-room.news-room' },
-        { name: 'api::press-release.press-release' }
+        { name: 'api::press-release.press-release' },
+        { name: 'api::main-menu.main-menu' },
+        { name: 'api::submenu.submenu' }
       ],
     },
   },
