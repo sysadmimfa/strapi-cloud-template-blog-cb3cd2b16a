@@ -54,9 +54,9 @@ export interface PostPost extends Struct.ComponentSchema {
   };
   attributes: {
     blogs: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
-    news_rooms: Schema.Attribute.Relation<
+    imfa_in_media: Schema.Attribute.Relation<
       'oneToMany',
-      'api::news-room.news-room'
+      'api::imfa-in-media.imfa-in-media'
     >;
     press_releases: Schema.Attribute.Relation<
       'oneToMany',
