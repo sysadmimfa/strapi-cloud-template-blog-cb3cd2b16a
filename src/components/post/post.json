@@ -17,10 +17,10 @@
       "relation": "oneToMany",
       "target": "api::press-release.press-release"
     },
-    "news_rooms": {
+    "imfa_in_media": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::news-room.news-room"
+      "target": "api::imfa-in-media.imfa-in-media"
     }
   }
 }
