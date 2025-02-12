@@ -403,6 +403,47 @@ export interface ApiAddressGroupAddressGroup
   };
 }
 
+export interface ApiAgmCollectionAgmCollection
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'agm_collections';
+  info: {
+    displayName: 'AGMCollection';
+    pluralName: 'agm-collections';
+    singularName: 'agm-collection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    AGMFinancialYear: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::financial-year.financial-year'
+    >;
+    AGMInvestors: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::investor.investor'
+    >;
+    AGMParentTitle: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    FinancialsOfSubsidiaries: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::investor.investor'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::agm-collection.agm-collection'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAlankarAlankar extends Struct.CollectionTypeSchema {
   collectionName: 'alankars';
   info: {
@@ -2345,6 +2386,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::address-group.address-group': ApiAddressGroupAddressGroup;
+      'api::agm-collection.agm-collection': ApiAgmCollectionAgmCollection;
       'api::alankar.alankar': ApiAlankarAlankar;
       'api::author.author': ApiAuthorAuthor;
       'api::banner-group.banner-group': ApiBannerGroupBannerGroup;

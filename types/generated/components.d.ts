@@ -153,6 +153,15 @@ export interface StatsStatsName extends Struct.ComponentSchema {
   };
 }
 
+export interface UniqueIdOfAgmUniqueIdOfAgm extends Struct.ComponentSchema {
+  collectionName: 'components_unique_id_of_agm_unique_id_of_agms';
+  info: {
+    description: '';
+    displayName: 'UniqueIdOfAGM';
+  };
+  attributes: {};
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -167,6 +176,7 @@ declare module '@strapi/strapi' {
       'shared.slider': SharedSlider;
       'socialmedia.social-media': SocialmediaSocialMedia;
       'stats.stats-name': StatsStatsName;
+      'unique-id-of-agm.unique-id-of-agm': UniqueIdOfAgmUniqueIdOfAgm;
     }
   }
 }

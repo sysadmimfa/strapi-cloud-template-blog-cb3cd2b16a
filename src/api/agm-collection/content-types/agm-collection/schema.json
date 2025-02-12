@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "agm_collections",
+  "info": {
+    "singularName": "agm-collection",
+    "pluralName": "agm-collections",
+    "displayName": "AGMCollection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "AGMFinancialYear": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::financial-year.financial-year"
+    },
+    "AGMInvestors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::investor.investor"
+    },
+    "AGMParentTitle": {
+      "type": "text"
+    },
+    "FinancialsOfSubsidiaries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::investor.investor"
+    }
+  }
+}
