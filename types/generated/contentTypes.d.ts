@@ -1525,6 +1525,7 @@ export interface ApiNotificationNotification
   extends Struct.CollectionTypeSchema {
   collectionName: 'notifications';
   info: {
+    description: '';
     displayName: 'Notification';
     pluralName: 'notifications';
     singularName: 'notification';
@@ -1543,6 +1544,7 @@ export interface ApiNotificationNotification
     > &
       Schema.Attribute.Private;
     NotificationText: Schema.Attribute.Text;
+    PDFFile: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     publishedAt: Schema.Attribute.DateTime;
     ShowNotification: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<true>;
