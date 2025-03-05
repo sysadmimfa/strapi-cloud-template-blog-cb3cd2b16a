@@ -1694,6 +1694,7 @@ export interface ApiStatsCountStatsCount extends Struct.CollectionTypeSchema {
 export interface ApiSubmenuSubmenu extends Struct.CollectionTypeSchema {
   collectionName: 'submenus';
   info: {
+    description: '';
     displayName: 'Submenu';
     pluralName: 'submenus';
     singularName: 'submenu';
@@ -1714,6 +1715,10 @@ export interface ApiSubmenuSubmenu extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     Name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    secondlevelmenu: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::submenu.submenu'
+    >;
     SEODescription: Schema.Attribute.Text;
     SEOKeywords: Schema.Attribute.String;
     SEOTitle: Schema.Attribute.String;
