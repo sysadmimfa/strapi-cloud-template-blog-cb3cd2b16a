@@ -4,7 +4,8 @@
   "info": {
     "singularName": "submenu",
     "pluralName": "submenus",
-    "displayName": "Submenu"
+    "displayName": "Submenu",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -25,6 +26,11 @@
     },
     "SEOKeywords": {
       "type": "string"
+    },
+    "secondlevelmenu": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::submenu.submenu"
     }
   }
 }
