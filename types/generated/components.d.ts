@@ -149,7 +149,7 @@ export interface StatsStatsName extends Struct.ComponentSchema {
   attributes: {
     ShowPlus: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     StatsName: Schema.Attribute.String;
-    StatsNumber: Schema.Attribute.Integer;
+    StatsNumber: Schema.Attribute.Decimal;
     Unit: Schema.Attribute.String;
   };
 }

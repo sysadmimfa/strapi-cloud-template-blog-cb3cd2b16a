@@ -11,7 +11,7 @@
       "type": "string"
     },
     "StatsNumber": {
-      "type": "integer"
+      "type": "decimal"
     },
     "ShowPlus": {
       "type": "boolean",
