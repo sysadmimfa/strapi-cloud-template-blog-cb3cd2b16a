@@ -16,6 +16,9 @@
     "ShowPlus": {
       "type": "boolean",
       "default": false
+    },
+    "Unit": {
+      "type": "string"
     }
   }
 }

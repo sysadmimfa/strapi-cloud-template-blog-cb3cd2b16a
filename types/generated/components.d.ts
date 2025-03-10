@@ -150,6 +150,7 @@ export interface StatsStatsName extends Struct.ComponentSchema {
     ShowPlus: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     StatsName: Schema.Attribute.String;
     StatsNumber: Schema.Attribute.Integer;
+    Unit: Schema.Attribute.String;
   };
 }
 
