@@ -9,6 +9,10 @@ module.exports = [
       origin: [
         "https://imfa-website.vercel.app",
         "https://www.imfa-website.vercel.app",
+        "https://stage.imfa.in",
+        "https://www.stage.imfa.in",
+        "https://imfa.in",
+        "https://www.imfa.in",
         "http://localhost:3000",
         "http://localhost:3001",
       ],
