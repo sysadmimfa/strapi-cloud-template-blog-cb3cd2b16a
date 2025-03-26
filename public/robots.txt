@@ -1,3 +1,12 @@
-# To prevent search engines from seeing the site altogether, uncomment the next two lines:
-# User-Agent: *
-# Disallow: /
+User-agent: *
+       Allow: /
+      Disallow: /reports
+Disallow: /media-hub/events
+      User-agent: Googlebot
+       Disallow:
+       User-agent: AdsBot-Google
+       Disallow:
+       User-agent: Googlebot-Image
+       Disallow:
+
+      Sitemap: https://www.imfa.in/sitemap.xml
