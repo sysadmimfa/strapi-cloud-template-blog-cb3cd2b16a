@@ -820,6 +820,41 @@ export interface ApiDataAccordionCategoryDataAccordionCategory
   };
 }
 
+export interface ApiDividendDividend extends Struct.CollectionTypeSchema {
+  collectionName: 'dividends';
+  info: {
+    displayName: 'Dividend';
+    pluralName: 'dividends';
+    singularName: 'dividend';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Dividend: Schema.Attribute.Decimal;
+    FinancialYear: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::financial-year.financial-year'
+    >;
+    InterimDividend: Schema.Attribute.Decimal;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::dividend.dividend'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    SecondInterimDividend: Schema.Attribute.Decimal;
+    SpecialDividend: Schema.Attribute.Decimal;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   collectionName: 'events';
   info: {
@@ -2403,6 +2438,7 @@ declare module '@strapi/strapi' {
       'api::contact-form.contact-form': ApiContactFormContactForm;
       'api::custom-post.custom-post': ApiCustomPostCustomPost;
       'api::data-accordion-category.data-accordion-category': ApiDataAccordionCategoryDataAccordionCategory;
+      'api::dividend.dividend': ApiDividendDividend;
       'api::event.event': ApiEventEvent;
       'api::fa-qor-data-accordion.fa-qor-data-accordion': ApiFaQorDataAccordionFaQorDataAccordion;
       'api::financial-year.financial-year': ApiFinancialYearFinancialYear;

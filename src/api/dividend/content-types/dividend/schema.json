@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dividends",
+  "info": {
+    "singularName": "dividend",
+    "pluralName": "dividends",
+    "displayName": "Dividend"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "FinancialYear": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::financial-year.financial-year"
+    },
+    "Dividend": {
+      "type": "decimal"
+    },
+    "InterimDividend": {
+      "type": "decimal"
+    },
+    "SpecialDividend": {
+      "type": "decimal"
+    },
+    "SecondInterimDividend": {
+      "type": "decimal"
+    }
+  }
+}
