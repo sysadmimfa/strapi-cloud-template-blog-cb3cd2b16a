@@ -12,7 +12,8 @@
         "Video",
         "Audio",
         "PDF",
-        "Link"
+        "Link",
+        "Excel"
       ],
       "default": "PDF"
     },
