@@ -23,7 +23,9 @@ export interface MediaFilesMediaFiles extends Struct.ComponentSchema {
     Audio: Schema.Attribute.Media<'files' | 'audios' | 'images' | 'videos'>;
     Link: Schema.Attribute.String;
     MediaTitle: Schema.Attribute.String;
-    MediaType: Schema.Attribute.Enumeration<['Video', 'Audio', 'PDF', 'Link']> &
+    MediaType: Schema.Attribute.Enumeration<
+      ['Video', 'Audio', 'PDF', 'Link', 'Excel']
+    > &
       Schema.Attribute.DefaultTo<'PDF'>;
     mux_video: Schema.Attribute.Relation<
       'oneToOne',
