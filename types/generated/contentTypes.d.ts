@@ -460,6 +460,7 @@ export interface ApiAlankarAlankar extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     DesktopImage: Schema.Attribute.Media<'images' | 'files'>;
+    ExternalPDFLink: Schema.Attribute.String;
     FinancialYear: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
