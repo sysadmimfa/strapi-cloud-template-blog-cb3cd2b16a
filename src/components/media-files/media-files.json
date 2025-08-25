@@ -49,6 +49,9 @@
     },
     "MediaTitle": {
       "type": "string"
+    },
+    "ExternalPDFLink": {
+      "type": "string"
     }
   }
 }

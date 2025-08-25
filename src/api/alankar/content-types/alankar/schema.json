@@ -52,6 +52,9 @@
     },
     "FinancialYear": {
       "type": "string"
+    },
+    "ExternalPDFLink": {
+      "type": "string"
     }
   }
 }

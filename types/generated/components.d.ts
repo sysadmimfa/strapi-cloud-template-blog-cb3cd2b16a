@@ -21,6 +21,7 @@ export interface MediaFilesMediaFiles extends Struct.ComponentSchema {
   };
   attributes: {
     Audio: Schema.Attribute.Media<'files' | 'audios' | 'images' | 'videos'>;
+    ExternalPDFLink: Schema.Attribute.String;
     Link: Schema.Attribute.String;
     MediaTitle: Schema.Attribute.String;
     MediaType: Schema.Attribute.Enumeration<
