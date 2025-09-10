@@ -1,4 +1,4 @@
-module.exports = ({env}) => ({
+module.exports = ({ env }) => ({
   // ...
   "mux-video-uploader": {
     enabled: true,
@@ -17,7 +17,14 @@ module.exports = ({env}) => ({
       applicationId: env('ALGOLIA_APP_ID'),
       contentTypes: [
         { name: 'api::alankar.alankar' },
-        { name: 'api::blog.blog' },
+        {
+          name: 'api::blog.blog', 
+          index: 'blogs',
+          transformEntry({ entry }) {
+            const { DesktopImage, MobileImage, ...rest } = entry;
+            return rest;
+          },
+        },
         { name: 'api::event.event' },
         { name: 'api::imfa-in-media.imfa-in-media' },
         { name: 'api::investor.investor' },
