@@ -3,35 +3,38 @@ module.exports = ({ env }) => ({
   "mux-video-uploader": {
     enabled: true,
     config: {
-      accessTokenId: env('MUX_ACCESS_TOKEN_ID'),
-      secretKey: env('MUX_ACCESS_TOKEN_SECRET'),
-      webhookSigningSecret: env('MUX_WEBHOOK_SIGNING_SECRET'),
-      playbackSigningId: env('MUX_SIGNING_KEY_ID'),
-      playbackSigningSecret: env('MUX_SIGNING_KEY_PRIVATE_KEY'),
-    }
+      accessTokenId: env("MUX_ACCESS_TOKEN_ID"),
+      secretKey: env("MUX_ACCESS_TOKEN_SECRET"),
+      webhookSigningSecret: env("MUX_WEBHOOK_SIGNING_SECRET"),
+      playbackSigningId: env("MUX_SIGNING_KEY_ID"),
+      playbackSigningSecret: env("MUX_SIGNING_KEY_PRIVATE_KEY"),
+    },
   },
-  'strapi-algolia': {
+  "strapi-algolia": {
     enabled: true,
     config: {
-      apiKey: env('ALGOLIA_ADMIN_KEY'),
-      applicationId: env('ALGOLIA_APP_ID'),
+      apiKey: env("ALGOLIA_ADMIN_KEY"),
+      applicationId: env("ALGOLIA_APP_ID"),
       contentTypes: [
-        { name: 'api::alankar.alankar' },
+        { name: "api::alankar.alankar" },
         {
-          name: 'api::blog.blog', 
-          index: 'blogs',
+          name: "api::blog.blog",
+          index: "blogs",
           transformEntry({ entry }) {
-            const { DesktopImage, MobileImage, ...rest } = entry;
-            return rest;
+            const { DesktopImage, MobileImage, CoverImage, images, ...rest } = entry;
+              return {
+              ...rest,
+              coverUrl: entry?.CoverImage?.url || null,
+            };
           },
         },
-        { name: 'api::event.event' },
-        { name: 'api::imfa-in-media.imfa-in-media' },
-        { name: 'api::investor.investor' },
-        { name: 'api::news-room.news-room' },
-        { name: 'api::press-release.press-release' },
-        { name: 'api::main-menu.main-menu' },
-        { name: 'api::submenu.submenu' }
+        { name: "api::event.event" },
+        { name: "api::imfa-in-media.imfa-in-media" },
+        { name: "api::investor.investor" },
+        { name: "api::news-room.news-room" },
+        { name: "api::press-release.press-release" },
+        { name: "api::main-menu.main-menu" },
+        { name: "api::submenu.submenu" },
       ],
     },
   },
