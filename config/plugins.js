@@ -20,19 +20,10 @@ module.exports = ({ env }) => ({
         {
           name: "api::blog.blog",
           index: "blogs",
-          populate: {
-            DesktopImage: false,
-            MobileImage: false,
-            CoverImage: false,
-            images: false,
-          },
           transformEntry({ entry }) {
-
-            return {
-              id: entry.id,
-              title: entry.title,
-              slug: entry.slug,
-              description: entry.description,
+            const { DesktopImage, MobileImage, CoverImage, images, ...rest } = entry;
+              return {
+              ...rest,
               coverUrl: entry?.CoverImage?.url || null,
             };
           },
