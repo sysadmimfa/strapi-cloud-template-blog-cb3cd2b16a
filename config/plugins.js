@@ -23,6 +23,7 @@ module.exports = ({ env }) => ({
           // populate: {
           //   CoverImage: { fields: ["url"] }, 
           // },
+          populate: [],
           transformEntry({ entry }) {
             return {
               id: entry.id,
