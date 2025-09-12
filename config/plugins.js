@@ -20,9 +20,9 @@ module.exports = ({ env }) => ({
         {
           name: "api::blog.blog",
           index: "blogs",
-          populate: {
-            CoverImage: { fields: ["url"] }, 
-          },
+          // populate: {
+          //   CoverImage: { fields: ["url"] }, 
+          // },
           transformEntry({ entry }) {
             return {
               id: entry.id,
