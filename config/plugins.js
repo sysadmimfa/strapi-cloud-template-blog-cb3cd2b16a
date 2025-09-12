@@ -28,8 +28,7 @@ module.exports = ({ env }) => ({
               id: entry.id,
               title: entry.title,
               slug: entry.slug,
-              seoDescription:entry.seodescription,
-              coverUrl: entry?.CoverImage?.url || null,
+              seoDescription:entry.seodescription
             };
           },
         },
