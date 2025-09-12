@@ -17,17 +17,22 @@ module.exports = ({ env }) => ({
       applicationId: env("ALGOLIA_APP_ID"),
       contentTypes: [
         { name: "api::alankar.alankar" },
-        // {
-        //   name: "api::blog.blog",
-        //   index: "blogs",
-        //   transformEntry({ entry }) {
-        //     const { DesktopImage, MobileImage, CoverImage, images, ...rest } = entry;
-        //       return {
-        //       ...rest,
-        //       coverUrl: entry?.CoverImage?.url || null,
-        //     };
-        //   },
-        // },
+        {
+          name: "api::blog.blog",
+          index: "blogs",
+          populate: {
+            CoverImage: { fields: ["url"] }, 
+          },
+          transformEntry({ entry }) {
+            return {
+              id: entry.id,
+              title: entry.title,
+              slug: entry.slug,
+              seoDescription:entry.seodescription,
+              coverUrl: entry?.CoverImage?.url || null,
+            };
+          },
+        },
         { name: "api::event.event" },
         { name: "api::imfa-in-media.imfa-in-media" },
         { name: "api::investor.investor" },
